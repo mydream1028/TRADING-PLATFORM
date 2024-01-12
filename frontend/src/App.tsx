@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { PATH } from "./consts";
 import {
+  AddTransactionPage,
   AddUserPage,
   DashboardPage,
   GetOneUserPage,
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path={PATH.DASHBOARD} element={<DashboardPage />} />
           <Route path={PATH.ADDUSER} element={<AddUserPage />} />
+          <Route path={PATH.ADDTRANSACTION} element={<AddTransactionPage />} />
           <Route path={PATH.GETONEUSER} element={<GetOneUserPage />} />
         </Routes>
       </BrowserRouter>

@@ -20,7 +20,7 @@ if (process.env.NODE_ENV !== "test") {
 app.use(cors());
 app.use(express.json());
 
-app.use("/", (req, res) => res.status(200).send("Tocos Trading Platform."));
+app.use("/health", (_req, res) => res.status(200).send("Tocos Trading Platform."));
 app.use("/users", UserRouter);
 app.use("/transaction", TransactionRouter);
 

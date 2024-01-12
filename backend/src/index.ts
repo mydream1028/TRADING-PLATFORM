@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import { connectDB } from "./db";
+import { UserRouter, TransactionRouter } from "./routers";
 import * as middleware from "./utils/middleware";
 import { info } from "./utils/logger";
 
@@ -12,12 +13,16 @@ const app = express();
 
 connectDB(app);
 
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== "test") {
   app.use(middleware.requestLogger);
 }
 
 app.use(cors());
 app.use(express.json());
+
+app.use("/", (req, res) => res.status(200).send("Tocos Trading Platform."));
+app.use("/users", UserRouter);
+app.use("/transaction", TransactionRouter);
 
 const PORT = process.env.PORT || 8000;
 

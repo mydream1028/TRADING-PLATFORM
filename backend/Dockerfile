@@ -1,19 +1,20 @@
-FROM node:18-alpine as development
+# Use the official Node.js 18 image with Alpine as the base image
+FROM node:18-alpine
 
+# Set the working directory inside the container
 WORKDIR /app
 
-COPY package*.json .
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
+# Install the Node.js dependencies
 RUN npm install
 
+# Copy all files from the current directory to the working directory in the container
 COPY . .
 
-RUN npm run build
-
+# Expose port 8000 to allow external access to the application
 EXPOSE 8000
 
-CMD ["node", "dist/index.js"]
-
-FROM development as test
-
-CMD ["npx", "jest"]
+# Command to start the application in development mode
+CMD ["npm", "run", "dev"]

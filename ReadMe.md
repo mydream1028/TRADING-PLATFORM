@@ -18,7 +18,6 @@ This document provides an overview of the application's features, technology sta
 - [Assumptions](#assumptions)
 - [Database Models](#database-models)
 - [Usage](#usage)
-- [Testing](#test)
 - [Possible Improvements](#possible-improvements)
 
 ## Introduction
@@ -35,7 +34,7 @@ Tocos Trading Platform is a web application designed to facilitate transactions 
 
 **Backend:**
 
-- Node.js iwth TypeScript
+- Node.js with TypeScript
 - Express
 - Jest
 - Supertest
@@ -260,40 +259,13 @@ To run the Tocos Trading Platform using Docker CLI.
 2. Make sure Docker is installed on your system.
 3. Open a termical and run the following command:
 
-   - run backend
+   - run frontend & backend
 
       ```bash
-        cd backend
         docker compose up
       ```
 
-   - run frontend
-
-      ```bash
-        cd frontend
-        docker build -t tocos_frontend
-        docker run -d tocos_frontend
-      ```
-
 4. Access the application by navigating to `http://localhost:5173` in your web browser.
-
-## Test
-
-To run tests:
-
-1. Modify the backend container in the `docker-compose.yaml` file, change the target to `test` and set the `NODE_ENV` to `test`.
-
-2. Open a terminal and run the following command:
-
-   ```bash
-     docker compose up
-   ```
-
-3. Run the test suite using the following command:
-
-   ```bash
-     docker compose run --rm npx jest
-   ```
 
 ## Possible Improvements
 
